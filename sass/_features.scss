@@ -18,7 +18,7 @@
     fill: $color-primary;
     width: 4.5rem;
     height: 4.5rem;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 2; //Here we use span because in (implicit grid) we can't use (-1)
     transform: translateY(-1rem);
   }
   &__text {
