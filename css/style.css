@@ -94,6 +94,30 @@ body {
   background-color: #c69963;
   grid-column: sidebar-start/sidebar-end;
   grid-row: 1/-1;
+  display: flex;
+  justify-content: center;
+}
+
+.sid-btn {
+  background-color: #fff;
+  width: 4.5rem;
+  height: 2px;
+  margin-top: 4rem;
+  border: none;
+}
+.sid-btn::before, .sid-btn::after {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 4.5rem;
+  height: 2px;
+}
+.sid-btn::before {
+  transform: translateY(-1.5rem);
+  height: 3px;
+}
+.sid-btn::after {
+  transform: translateY(1.1rem);
 }
 
 .header {
