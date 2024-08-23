@@ -4,6 +4,14 @@
   grid-row: 1 / -1;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 /-1;
+    grid-row: 1;
+    justify-content: end;
+    align-items: center;
+  }
+ 
 }
 
 .sid-btn {
@@ -23,9 +31,18 @@
   }
   &::before {
     transform: translateY(-1.5rem);
-    height: 3px;
   }
   &::after {
-    transform: translateY(1.1rem);
+    transform: translateY(1.3rem);
+  }
+  @media only screen and (max-width: $bp-large) {
+    margin-right: 4rem;
+    margin-top: 0rem;
+    &::before {
+      transform: translateY(-1.2rem);
+    }
+    &::after {
+      transform: translateY(1rem);
+    }
   }
 }

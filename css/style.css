@@ -10,6 +10,11 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-size: inherit;
@@ -23,6 +28,17 @@ body {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+@media only screen and (max-width: 62.5em) {
+  .container {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  }
+}
+@media only screen and (max-width: 50em) {
+  .container {
+    grid-template-rows: 6rem calc(100vh - 6rem);
+  }
 }
 
 .heading-4, .heading-3, .heading-2, .heading-1 {
@@ -103,6 +119,14 @@ body {
   display: flex;
   justify-content: center;
 }
+@media only screen and (max-width: 62.5em) {
+  .sidebar {
+    grid-column: 1/-1;
+    grid-row: 1;
+    justify-content: end;
+    align-items: center;
+  }
+}
 
 .sid-btn {
   background-color: #fff;
@@ -120,10 +144,21 @@ body {
 }
 .sid-btn::before {
   transform: translateY(-1.5rem);
-  height: 3px;
 }
 .sid-btn::after {
-  transform: translateY(1.1rem);
+  transform: translateY(1.3rem);
+}
+@media only screen and (max-width: 62.5em) {
+  .sid-btn {
+    margin-right: 4rem;
+    margin-top: 0rem;
+  }
+  .sid-btn::before {
+    transform: translateY(-1.2rem);
+  }
+  .sid-btn::after {
+    transform: translateY(1rem);
+  }
 }
 
 .header {
@@ -134,10 +169,20 @@ body {
   padding: 8rem;
   padding-top: 4rem;
   display: grid;
-  grid-template-rows: 1fr min-content 6rem 1fr;
-  grid-template-columns: max-content;
+  grid-template-rows: 1fr min-content minmax(min-content, 6rem) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
   justify-content: center;
   row-gap: 1.5rem;
+}
+@media only screen and (max-width: 50em) {
+  .header {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .header {
+    padding: 5rem;
+  }
 }
 .header__logo {
   height: 3rem;
@@ -170,9 +215,12 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
+  align-items: center;
+  column-gap: 3rem;
 }
 .header__seenon-logos img {
-  height: 3rem;
+  max-height: 3rem;
+  max-width: 100%;
   filter: brightness(70%);
 }
 
@@ -186,12 +234,27 @@ body {
   justify-items: center;
   row-gap: 2rem;
 }
+@media only screen and (max-width: 50em) {
+  .realtors {
+    grid-column: 1/-1;
+  }
+}
 .realtors__list {
   display: grid;
   grid-template-columns: min-content max-content;
   align-items: center;
   row-gap: 5vh;
   column-gap: 2rem;
+}
+@media only screen and (max-width: 50em) {
+  .realtors__list {
+    grid-template-columns: repeat(3, min-content max-content);
+  }
+}
+@media only screen and (max-width: 50em) {
+  .realtors__list {
+    grid-template-columns: min-content max-content;
+  }
 }
 .realtors__img {
   width: 7rem;
@@ -234,15 +297,28 @@ body {
   background-color: #c69963;
   grid-column: full-start/col-end 4;
   background-image: linear-gradient(rgba(198, 153, 99, 0.5), rgba(198, 153, 99, 0.5)), url("../img/back.jpg");
+  background-size: cover;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(6, 1fr);
   align-items: center;
 }
+@media only screen and (max-width: 50em) {
+  .story__pictures {
+    grid-column: 1/-1;
+    padding: 6rem;
+  }
+}
 .story__img--1 {
   width: 100%;
   grid-column: 2/6;
   grid-row: 2/6;
+}
+@media only screen and (max-width: 50em) {
+  .story__img--1 {
+    grid-column: 1/5;
+    grid-row: 1/-1;
+  }
 }
 .story__img--2 {
   width: 115%;
@@ -251,6 +327,12 @@ body {
   z-index: 20;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
+@media only screen and (max-width: 50em) {
+  .story__img--2 {
+    grid-row: 1/-1;
+    width: 100%;
+  }
+}
 .story__content {
   background-color: #f9f7f6;
   grid-column: col-start 5/full-end;
@@ -258,6 +340,12 @@ body {
   display: grid;
   align-content: center;
   justify-items: flex-start;
+}
+@media only screen and (max-width: 50em) {
+  .story__content {
+    grid-column: 1/-1;
+    grid-row: 5/6;
+  }
 }
 .story__text {
   font-style: italic;
